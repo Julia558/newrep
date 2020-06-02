@@ -1,0 +1,10 @@
+﻿{% extends "base_book.html" %}
+
+{% block Title %}{{ book.title }}{% endblock Title %}
+{% block Author %}{{ book.author }}{% endblock Author %}
+{% block Year %}{{ book.publication_date }}{% endblock Year %}
+{% block Iz %}{{ book.publisher }}{% endblock Iz %}
+{% block Possibility %}{{ book.possibility }}{% endblock Possibility %}
+{% block Wish %}{{ book.wishes }}{% endblock Wish %}
+{% block Name %}{{ pers.surname}} {{ person.name }}{% endblock Name %}
+{% block Phone %}{{ pers.phone }}{% endblock Phone %}

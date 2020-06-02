@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+
+{% extends "base_generic.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <h3>Регистрация</h3>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+
+      <form name='registration' method="POST" >
+        {% csrf_token %}
+          <div class="form-row">
+
+          <div class="form-group col-md-6">
+            <label for="name">Имя</label>
+            <input type="text" class="form-control" required placeholder="Имя" id="name" name="name">
+            <div class="message" id="divname"></div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>Фамилия</label>
+            <input type="text" class="form-control" placeholder="Фамилия" id="lastname" name="lastname">
+            <div class="message" id="divlastname"></div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>Номер телефона</label>
+            <input type="tel" class="form-control" required placeholder="(___) ___ __ __" id="phone" name="phone">
+            <div class="message" id="divphone"></div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>Город</label>
+            <input type="text" class="form-control" required placeholder="Город" id="city" name="city">
+            <div class="message" id="divcity"></div>
+          </div>
+
+          <div class="form-group col-md-12">
+            <label for="exampleInputEmail1">Почта</label>
+            <input type="email" class="form-control" id="inputEmail4" aria-describedby="emailHelp" required placeholder="Почта" name="mail">
+            <div class="message" id="divmail"></div>
+            <small id="emailHelp" class="form-text text-muted">Мы никогда не опубликовываем ваш адрес электронной почты и не передаем его кому-либо еще.</small>
+          </div>
+
+          <div class="form-group col-md-12">
+            <label for="inputPassword4">Пароль</label>
+            <input type="password" class="form-control" id="inputPassword" required placeholder="Пароль" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+            <div class="message" id="divpassword"></div>
+          </div>
+
+          <div id="message" align="left">
+            <small>Пароль должен содержать:
+            <p id="letter" class="invalid"> строчные буквы</p>
+            <p id="capital" class="invalid"> заглавные буквы</p>
+            <p id="number" class="invalid"> цифры</p>
+            <p id="length" class="invalid"> 8 символов</p></small>
+          </div>
+
+          <div class="form-group col-md-12">
+            <label for="inputPassword4">Подтверждение пароля</label>
+            <input type="password" class="form-control" id="inputPasswordConfirmation" required placeholder="Подтверждение пароля" name="confirmpassword">
+            <div class="message" id="divconfpass"></div>
+          </div>
+        </div>
+            <!-- <input type = "submit" name="submit" value="Зарегистрироваться" class="btn btn-primary" onclick="handleButtonClick()"/> -->
+          <input type = "submit" name="submit" value="Зарегистрироваться" class="btn btn-primary" onclick="handleButtonClick()"/>
+           <!--<a class="btn btn-primary" onclick="handleButtonClick()">Зарегистрироваться</a>!-->
+      </form>
+
+
+        </div>
+        <div class="col-md-4">
+      </div>      
+
+    </div>
+{% endblock %}

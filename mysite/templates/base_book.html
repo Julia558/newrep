@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends "base_generic.html" %}
+{% block content%}
+{% load static %}
+    <h3> Информация о книге </h3>
+     <div class ="row">
+
+        <div class="col-md-6">
+          <p> <img src="{% static "Война и мир.jpg" %}" style="height: 375px" width="250";  align="center"></p>
+            <div>
+                <div> Текст: {{ like_obj.id }}</div>
+                <ul data-id="{{ like_obj.id }}" data-type="book" data-action="like" title="Нравится" align="left">
+                    <button id="like" class="btn btn-medium"><img src="{% static "like.png" %}">
+                    <span data-count="like">{{ like_obj.votes.likes.count }}</span></button>
+                </ul>
+                <ul data-id="{{ like_obj.id }}" data-type="book" data-action="dislike" title="Не нравится" align="right">
+                    <button id="dislike" class="btn btn-medium"><img src="{% static "dislike.png" %}">
+                    <span data-count="dislike">{{ like_obj.votes.dislikes.count }}</span></button>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="text-left">
+            <h4> Подробная информация </h4>
+            <p><u>Название:</u> {% block Title %}{% endblock Title %} </p>
+            <p><u>Автор:</u> {% block Author %}{% endblock Author %} </p>
+            <p><u>Год издания:</u> {% block Year %}{% endblock Year %} </p>
+            <p><u>Издательство:</u> {% block Iz %}{% endblock Iz %} </p>
+            <p><u>Возможность дистанционного обмена:</u> {% block Possibility %}{% endblock Possibility %} </p>
+            <p><u>Пожелания:</u> {% block Wish %}{% endblock Wish %} </p>
+            <p><u>Контактная информация:</u> </p>
+            <p>{% block Name %}{% endblock Name %}</p>
+            <p>{% block Phone %}{% endblock Phone %} </p>
+          </div>
+        </div>
+      </div>
+
+{% endblock content %}
